@@ -1,0 +1,24 @@
+(define (first-large a b c) ;Procedure Checks For Largest Number
+    (if (>= a b)
+      (if (>= a c)
+        a
+        c)
+      (if (>= b c)
+        b
+        c)))
+
+(define (sec-large a b c) ;Procedure Checks For Second Large Number
+  (cond ((= (first-large a b c) a) (if (> b c) b c))
+        ((= (first-large a b c) b) (if (> a c) a c))
+        ((= (first-large a b c) c) (if (> a b) a b))
+        )
+  )
+
+(define (square a) ;square number
+    (* a a))
+
+(define (sum-square a b) ;adds squares 
+    (+ (square a) (square b)))
+
+(define (sum-square-of-first-sec a b c) ; gets input
+    (sum-square (first-large a b c) (sec-large a b c)))
