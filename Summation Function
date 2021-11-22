@@ -1,0 +1,14 @@
+(define (sum low high) ;Linear Recursive Solution
+  (if (> low high)
+      0
+      (+ low (sum (+ low 1) high))))
+
+(define (sum2 sum low high) ;Linear Iterative Solution 
+  (if (> low high)
+    sum
+    (sum2 (+ sum low) (+ low 1) high)))
+
+(define (sum-iter low high)
+  (sum2 0 low high))
+
+(sum-iter 0 5)
